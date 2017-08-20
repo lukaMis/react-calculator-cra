@@ -1,0 +1,4 @@
+
+- styles
+- implement del button
+- ?
