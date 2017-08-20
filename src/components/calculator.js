@@ -33,7 +33,7 @@ const Calculator = (props) => {
         <Button label={'1'} type={'input'} handleClick={props.handleClick} />
         <Button label={'2'} type={'input'} handleClick={props.handleClick} />
         <Button label={'3'} type={'input'} handleClick={props.handleClick} />
-        <Button label={'÷'} type={'action'} handleClick={props.handleClick} />
+        <Button label={'/'} type={'action'} handleClick={props.handleClick} />
       </div>
       <div className={'button-row'}>
         <Button label={'.'} type={'input'} handleClick={props.handleClick} />

@@ -2,7 +2,7 @@
 import { ADD_QUESTION } from '../../constants/'
 
 const initialState = {
-  question: 'question'
+  question: ''
 }
 
 export default function questionReducer(state = initialState, action) {

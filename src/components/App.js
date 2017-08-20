@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import logo from '../images/logo.svg'
 import '../styles/App.css'
 
@@ -7,71 +7,50 @@ import { connect } from 'react-redux'
 import * as actions from '../actions'
 import Calculator from './calculator'
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      question: ''
-    }
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick (event) {
-    console.log('event.target.value', event.target.value)
-    let value = event.target.value
-    
+const App = (props) => {
+  const handleClick = (evt) => {
+    const value = evt.target.value
+    console.log(value)
     switch(value) {
-      case '=':
-        this.state.question &&
-        this.props.addAnswer(
-          eval(this.state.question).toString() // eslint-disable-line no-eval
-        )
-      break
 
       case 'del':
-        throw 42
+        const question = props.question.slice(0, props.question.length -1)
+        props.addQuestion(question)
       break
 
       case 'clr':
-        this.setState((state, props) => {
-          return {
-            question: ''
-          }}, () => {
-            this.props.addQuestion(this.state.question)
-            this.props.addAnswer('')
-          })
+        props.addQuestion('')
+        props.addAnswer('')
       break
 
-      case '÷':
-        value = '/'
-      // eslint-disable-line no-fallthrough
-
-      default: 
-        this.setState((state, props) => {
-          return {
-            question: state.question + value
-          }}, () => this.props.addQuestion(this.state.question)
+      case '=':
+        props.question && 
+        props.addAnswer(
+          eval(props.question).toString() // eslint-disable-line no-eval
         )
+      break
+      
+      default:
+      props.addQuestion(props.question + value)
     }
   }
-  render() {
-    return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">Simple calculator in React with Redux</p>
-        <div>
-          <Calculator 
-            handleClick={this.handleClick} 
-            question={this.props.question}
-            answer={this.props.answer}
-          />
-        </div>
+
+  return (
+    <div className="App">
+      <div className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <h2>React Calculator</h2>
       </div>
-    )
-  }
+      <p className="App-intro">Simple calculator in React with Redux</p>
+      <div>
+        <Calculator 
+          handleClick={handleClick} 
+          question={props.question}
+          answer={props.answer}
+        />
+      </div>
+    </div>
+  )
 }
 
 function mapStateToProps(state) {

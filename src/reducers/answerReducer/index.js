@@ -2,7 +2,7 @@
 import { ADD_ANSWER } from '../../constants/'
 
 const initialState = {
-  answer: 'answer'
+  answer: ''
 }
 
 export default function answerReducer(state = initialState, action) {
