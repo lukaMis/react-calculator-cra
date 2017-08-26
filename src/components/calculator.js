@@ -5,9 +5,11 @@ import PropTypes from 'prop-types'
 import Button from './button'
 import Screen from './screen'
 
+import '../styles/Calculator.css'
+
 const Calculator = (props) => {
   return (
-    <div>
+    <div className={'calculator'}>
       <div className={'button-row'}>
         <Screen question={props.question} answer={props.answer} />
       </div>

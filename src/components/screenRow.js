@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 
 const ScreenRow = (props) => {
   return (
-    <div>
+    <div className={'screen-row'}>
       <input
         type={'text'}
         readOnly
