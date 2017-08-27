@@ -1,11 +1,9 @@
 
-.screen-row {
-  // display: flex;
-  // background: red;
+.screen {
+  display: flex;
+  flex-direction: column;
 }
 
-.screen-row input[type="text"] {
-  width: 100%;
-  // opacity: 0;
+.screen-row {
   flex: 1;
 }

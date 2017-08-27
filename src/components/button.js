@@ -3,10 +3,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Button = (props) => {
+  const customClass = (props.customClass) ? props.customClass : ''
+  const htmlClass = (props.type === 'action') ? `button action-button ${customClass}` : `button input-button ${customClass}`
+  
   return (
     <input 
       type='button'
-      className={ props.type === 'action' ? 'button action-button': 'button input-button' }
+      className={htmlClass}
       value={props.label}
       onClick={props.handleClick}
     />

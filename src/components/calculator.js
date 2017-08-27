@@ -10,9 +10,7 @@ import '../styles/Calculator.css'
 const Calculator = (props) => {
   return (
     <div className={'calculator'}>
-      <div className={'button-row'}>
-        <Screen question={props.question} answer={props.answer} />
-      </div>
+      <Screen question={props.question} answer={props.answer} />
       <div className={'button-row'}>
         <Button label={'('} type={'input'} handleClick={props.handleClick} />
         <Button label={')'} type={'input'} handleClick={props.handleClick} />
@@ -40,7 +38,7 @@ const Calculator = (props) => {
       <div className={'button-row'}>
         <Button label={'.'} type={'input'} handleClick={props.handleClick} />
         <Button label={'0'} type={'input'} handleClick={props.handleClick} />
-        <Button label={'='} type={'action'} handleClick={props.handleClick} />
+        <Button label={'='} type={'action'} handleClick={props.handleClick} customClass={'eval'} />
         <Button label={'*'} type={'action'} handleClick={props.handleClick} />
       </div>
     </div>

@@ -24,10 +24,18 @@ const App = (props) => {
       break
 
       case '=':
-        props.question && 
-        props.addAnswer(
-          eval(props.question).toString() // eslint-disable-line no-eval
-        )
+        if(props.question) {
+          try {
+            props.addAnswer(
+              eval(props.question).toString() // eslint-disable-line no-eval
+            )
+          } catch (err) {
+            if (err instanceof SyntaxError || err instanceof Error) {
+              console.log(err.message)
+              alert(err.message)
+            }
+          }
+        }
       break
       
       default:

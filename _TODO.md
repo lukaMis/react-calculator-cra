@@ -1,7 +1,6 @@
 
-- add styles for screen row
-
 DONE:
+  - add styles for screen row
   - add styles
   - add support for sass
   - implement del button
